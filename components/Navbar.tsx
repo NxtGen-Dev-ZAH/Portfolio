@@ -1,5 +1,5 @@
 "use client";
-import { Socials } from "@/constants"
+import { Socials } from "@/constants";
 import Image from "next/image";
 import React from "react";
 import Navigation from "./Navigation";
@@ -34,14 +34,15 @@ const Navbar = () => {
       </div>
       <div className="flex flex-row gap-7 mb-2 ">
         {Socials.map((social) => (
-         <Link key={social.name} href={social.link} target="_blank">
-         <Image
-           src={social.src}
-           alt={social.name}
-           width={28}
-           height={28}
-         />
-       </Link>
+          <Link key={social.name} href={social.link} target="_blank">
+            <Image
+              src={social.src}
+              alt={social.name}
+              width={28}
+              height={28}
+              className="filter invert-0  "
+            />
+          </Link>
         ))}
       </div>
     </div>

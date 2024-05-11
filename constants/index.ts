@@ -71,7 +71,7 @@ export const Socials = [
   },
   {
     name: "LinkedIn",
-    src: "/discord.png",
+    src: "/linkedin.png",
     link:"https://www.linkedin.com/in/zaheerahmedabbasi/"
   },
   {
