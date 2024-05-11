@@ -87,9 +87,11 @@ export const Socials = [
 ];
 export const Projects = [
   {
-    title: "Modern Nextjs Portfolio",
-    text: "Create a cutting-edge Next.js portfolio that showcases your skills and projects.Crafted a dynamic and responsive user experience using the latest technologies.",
-    src: "/bg1.png",
+    
+      title: "MODERN ECOMMERCE STORE",
+      text: "Build a modern ecommerce store with Next.js, showcasing a seamless and responsive shopping experience. Leveraging cutting-edge technologies to deliver a fast and efficient online store.",
+      src: "/terrasalina.png",
+    
   },
   {
     title: "Emotion Detection Flask app",
@@ -102,9 +104,9 @@ export const Projects = [
     src: "/bg-4.png",
   },
   {
-    title: "NEXT JS TODOS APP",
+    title: "FULLSTACK NEXT JS TASK MANAGER APP",
     text: " ",
-    src: "/SpaceWebsite.png",
+    src: "/task.png",
   },
 ];
 export const NavLinks = [
