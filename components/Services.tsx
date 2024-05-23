@@ -115,11 +115,14 @@ const Services: React.FC = () => {
               ></div>
             </div>
             <div className="flex justify-center w-4/6">
+            <Link href="#contact"> 
               <button className="flex gap-2 items-center justify-center bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded m-2 ring-2 ring-offset-1 ring-offset-purple">
-                <Link href="#contact"> Let's Chat</Link>
+                Let's Chat
                 <RxEyeOpen size={24} color="#fff" />{" "}
                 {/* Use the communication icon */}
+                
               </button>
+              </Link>
             </div>
           </div>
         ))}
