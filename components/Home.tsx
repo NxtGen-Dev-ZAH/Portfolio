@@ -6,7 +6,7 @@ export default function Home() {
       className="flex items-center w-full h-full bg-cover bg-center"
       style={{ backgroundImage: "url(/main.jpg)" }}
     >
-      <div className="h-screen pl-20 md:pl-40 pb-56 md:pb-20 flex flex-col gap-5 z-[10] max-w-[800px]">
+      <div className="h-screen pl-20 md:pl-40 pb-56 md:pb-20 flex flex-col gap-5 z-[10] max-w-[830px]">
         <h1 className="text-[50px] text-white font-semibold pt-40">
           HI, I AM&nbsp;
           <span className="text-transparent bg-clip-text bg-gradient-to-tr from-blue-700 to-red-500">
@@ -31,7 +31,12 @@ export default function Home() {
           >
             Learn more
           </Link>
-
+          <Link
+            href="#services" // Update the href to scroll to the skills section
+            className="rounded-[20px] group relative bg-purple-300 hover:bg-purple-200 border-2 border-red-500 px-5 py-3 text-lg text-purple-800  font-bold max-w-[200px]"
+          >
+            My Services
+          </Link>
           <Link
             href="#projects" // Update the href to scroll to the projects section
             className="rounded-[20px] group relative bg-purple-300 hover:bg-purple-200 border-2 border-red-500 px-5 py-3 text-lg text-purple-800  font-bold  max-w-[200px]"

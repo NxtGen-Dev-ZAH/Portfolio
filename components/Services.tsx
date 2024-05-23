@@ -1,7 +1,7 @@
 import Image from "next/image";
 import React, { useState } from "react";
 import { RxEyeOpen } from "react-icons/rx"; // Import the communication icon
-
+import Link from "next/link";
 interface Service {
   name: string;
   description: string[];
@@ -9,7 +9,7 @@ interface Service {
 }
 
 const Services: React.FC = () => {
-  const [activeService, setActiveService] = useState("webDevelopment");
+  const [activeService, setActiveService] = useState("Web Development");
 
   const handleServiceClick = (service: string) => {
     setActiveService(service);
@@ -23,7 +23,7 @@ const Services: React.FC = () => {
         "Responsive, high-performance websites with a focus on SEO and user experience.",
         "E-commerce solutions and online store development.",
       ],
-      image: "/web-development.jpg", // Image URL for Web Development
+      image: "/website.jpg", // Image URL for Web Development
     },
     {
       name: "AI and Machine Learning",
@@ -32,7 +32,7 @@ const Services: React.FC = () => {
         "Machine learning model development and deployment.",
         "Natural language processing and computer vision solutions.",
       ],
-      image: "/ai-machine-learning.jpg", // Image URL for AI and Machine Learning
+      image: "/aiml.jpg", // Image URL for AI and Machine Learning
     },
     {
       name: "DevOps",
@@ -57,8 +57,11 @@ const Services: React.FC = () => {
   ];
 
   return (
-    <div className="bg-gradient-to-bl from-purple-800 via-purple-950 to-slate-900 h-screen w-screen p-5">
-      <h1 className="font-semibold tracking-wide text-white text-[50px] pt-10 ml-10">
+    <div
+      style={{ backgroundImage: "url(/BG-2.jpg)" }}
+      className="h-screen w-screen p-5 bg-clip bg-cover"
+    >
+      <h1 className="font-semibold tracking-wide text-white text-[50px] pt-14 ml-10">
         Our Services
       </h1>
       <p className="text-gray-200 pt-2 ml-14 text-lg font-semibold">
@@ -67,7 +70,7 @@ const Services: React.FC = () => {
         <br />
         Here are some of the services I provide:
       </p>
-      <div className="relative flex flex-col border-red-500 border-2 pt-1 ml-20 mr-20 mt-5">
+      <div className="relative flex flex-col pt-1 ml-20 mr-20 mt-5">
         <div className="flex justify-center mb-4 gap-5">
           {services.map((service) => (
             <button
@@ -112,8 +115,8 @@ const Services: React.FC = () => {
               ></div>
             </div>
             <div className="flex justify-center w-4/6">
-              <button className="flex gap-2 items-center justify-center bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded m-2 ring-2 ring-offset-2 ring-offset-purple">
-                Let's Chat
+              <button className="flex gap-2 items-center justify-center bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded m-2 ring-2 ring-offset-1 ring-offset-purple">
+                <Link href="#contact"> Let's Chat</Link>
                 <RxEyeOpen size={24} color="#fff" />{" "}
                 {/* Use the communication icon */}
               </button>
