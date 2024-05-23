@@ -1,6 +1,7 @@
 "use client";
 import Home from "@/components/Home";
 import Navbar from "@/components/Navbar";
+import Services from "@/components/Services";
 import Footer from "@/components/footer";
 import Contact from "@/components/page";
 import Project from "@/components/project";
@@ -17,6 +18,10 @@ export default function Main() {
         {" "}
         <Home />
       </div>
+      <div id="services">
+        {" "}
+        <Services />
+      </div>
       <div id="skills">
         {" "}
         <Skill />
@@ -30,9 +35,8 @@ export default function Main() {
         <Contact />
       </div>
       <div>
-        <Footer/>
+        <Footer />
       </div>
-     
 
       <Image
         src="/stars.png"
