@@ -8,6 +8,36 @@ export const SkillData = [
     height: 80,
   },
   {
+    name: "Docker",
+    Image: "/docker.png",
+    width: 80,
+    height: 80,
+  },
+  {
+    name: "Kafka",
+    Image: "/kafka.png",
+    width: 90,
+    height: 80,
+  },
+  {
+    name: "Kong",
+    Image: "/kong.png",
+    width: 80,
+    height: 80,
+  },
+  {
+    name: "POSTGRESQL",
+    Image: "/postgresql.png",
+    width: 80,
+    height: 80,
+  },
+  {
+    name: "KUBERNETTES",
+    Image: "/kubernettes.png",
+    width: 100,
+    height:100,
+  },
+  {
     name: "Css",
     Image: "/css.png",
     width: 80,
@@ -44,6 +74,12 @@ export const SkillData = [
     height: 80,
   },
   {
+    name: "SQLMODEL",
+    Image: "/sqlmodel.png",
+    width:90,
+    height: 90,
+  },
+  {
     name: "Python",
     Image: "/python.png",
     width: 80,
@@ -54,6 +90,18 @@ export const SkillData = [
     Image: "/mongodb.png",
     width: 40,
     height: 40,
+  },
+  {
+    name: "Fastapi",
+    Image: "/fastapi.png",
+    width: 140,
+    height: 120,
+  },
+  {
+    name: "Flask",
+    Image: "/flask.png",
+    width: 80,
+    height: 80,
   },
   {
     name: "TENSOR FLOW",
@@ -105,8 +153,18 @@ export const Projects = [
   },
   {
     title: "FULLSTACK NEXT JS TASK MANAGER APP",
-    text: " ",
+    text: "A robust task manager application built with Next.js for seamless task management, featuring task creation, editing, and categorization.",
     src: "/task.png",
+  },
+  {
+    title: "FULLSTACK PERSONAL AI ASSISTANT",
+    text: "An innovative personal AI assistant developed using Next.js, FastAPI, and OpenAI APIs to manage tasks, set reminders, and provide quick answers,this app offers personalized assistance and enhances productivity through intelligent interaction.",
+    src: "/ASSISTANT.png",
+  },
+  {
+    title: "FULLSTACK PROBLEM SOLVER AI/CHAT COMPLETION APP",
+    text: "A cutting-edge problem solver app using Next.js, FastAPI, and OpenAI APIs, featuring an intuitive chat interface for solving complex problems efficiently.",
+    src: "/PROBLEM_SOLVER.png",
   },
 ];
 export const NavLinks = [
@@ -116,22 +174,22 @@ export const NavLinks = [
     link: "#home", // Add section ID prefixed with #
   },
   {
-    name: "Person",
+    name: "Services",
     icon: RxGear,
     link: "#services", // Add section ID prefixed with #
   },
   {
-    name: "Person",
+    name: "Skills",
     icon: RxPerson,
     link: "#skills", // Add section ID prefixed with #
   },
   {
-    name: "#projects",
+    name: "Projects",
     icon: RxDashboard,
     link: "#projects", // Add section ID prefixed with #
   },
   {
-    name: "#contact",
+    name: "Contact Me",
     icon: RxClipboard,
     link: "#contact", // Add section ID prefixed with #
   },

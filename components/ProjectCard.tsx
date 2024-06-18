@@ -20,9 +20,8 @@ const ProjectCard = ({ image, title, text }: Props) => {
 
   return (
     <motion.div
-      className="w-[450px] h-[280px] rounded-md cursor-pointer overflow-hidden"
+      className="w-[180px] h-[180px] md:w-[450px] md:h-[250px] rounded-md cursor-pointer overflow-hidden"
       whileHover={{ scale: 1.1 }}
-
     >
       <div onClick={handleFlip} className="w-full h-full relative">
         <motion.div
@@ -37,7 +36,7 @@ const ProjectCard = ({ image, title, text }: Props) => {
             className="w-full h-full group relative flip-card-front bg-cover bg-center text-white rounded-lg p-4"
           >
             <div className="absolute inset-0 w-full h-full rounded-md bg-black opacity-0 group-hover:opacity-40" />
-            <div className="absolute inset-0 w-full h-full text-[30px] font-bold pb-10 hidden group-hover:flex items-center z-[20] justify-end ">
+            <div className="absolute inset-0 w-full h-full text-[16px] md:text-[20px] font-bold pb-4 hidden group-hover:flex items-center z-[20] justify-end ">
               Learn more &gt;
             </div>
           </div>
@@ -46,9 +45,11 @@ const ProjectCard = ({ image, title, text }: Props) => {
             className="w-full h-full group relative flip-card-back bg-cover bg-center text-white rounded-lg p-4"
           >
             <div className="absolute inset-0 w-full h-full rounded-md bg-black opacity-50 z-[-1]" />
-            <div className="flex flex-col gap-16 py-3 z-[30]">
-              <h1 className="text-white text-2xl font-semibold">{title}</h1>
-              <p className="text-gray-200 text-[20px] font-medium">{text}</p>
+            <div className="flex flex-col gap-4 py-3 z-[30]">
+              <h1 className="text-white text-base md:text-2xl font-semibold">
+                {title}
+              </h1>
+              <p className="text-gray-200 text-xs md:text-base">{text}</p>
             </div>
           </div>
         </motion.div>

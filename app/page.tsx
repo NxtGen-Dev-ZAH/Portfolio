@@ -3,7 +3,7 @@ import Home from "@/components/Home";
 import Navbar from "@/components/Navbar";
 import Services from "@/components/Services";
 import Footer from "@/components/footer";
-import Contact from "@/components/page";
+import Contact from "@/components/Contact";
 import Project from "@/components/project";
 import Skill from "@/components/skill";
 import Image from "next/image";

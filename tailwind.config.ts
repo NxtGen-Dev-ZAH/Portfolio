@@ -10,11 +10,22 @@ const config: Config = {
     extend: {
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic':
-          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+        'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+      },
+      textShadow: {
+        glow: '0 0 10px purple, 0 0 20px purple, 0 0 30px purple',
       },
     },
   },
-  plugins: [],
+  plugins: [
+    function ({ addUtilities }) {
+      addUtilities({
+        '.text-shadow-glow': {
+          textShadow: '0 0 10px purple, 0 0 20px purple, 0 0 30px purple',
+        },
+      })
+    },
+  ],
 }
+
 export default config

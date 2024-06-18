@@ -1,12 +1,16 @@
 import { NavLinks } from "@/constants";
 import { usePathname } from "next/navigation";
 import React, { useEffect, useState } from "react";
-import Transition from "./Transition";
+import Link from "next/link";
 
-const Navigation = () => {
+type NavigationProps = {
+  onLinkClick: (event: React.MouseEvent<HTMLAnchorElement>) => void;
+};
+
+const Navigation: React.FC<NavigationProps> = ({ onLinkClick }) => {
   const [isRouting, setisRouting] = useState(false);
   const path = usePathname();
-  const [prevPath, setPrevPath] = useState("/homee");
+  const [prevPath, setPrevPath] = useState("/home");
 
   useEffect(() => {
     if (prevPath !== path) {
@@ -24,25 +28,21 @@ const Navigation = () => {
       return () => clearTimeout(timeout);
     }
   }, [isRouting]);
+
   return (
-    <div
-      style={{ left: "40%" }}
-      className="absolute z-[50] -bottom-16 w-fit md:w-[20%] max-h-[150px] rounded-full flex justify-between items-center  py-7"
-    >
-      {isRouting && <Transition />}
+    <div className="flex flex-col md:flex-row justify-center md:justify-between items-center w-full md:w-auto py-5 md:py-0">
       {NavLinks.map((nav) => (
-        <a
+        <Link
           key={nav.name}
-          href={nav.link} 
-          className="mb-16 pl-4 min-w-[20%]"
+          href={nav.link}
+          onClick={onLinkClick} // Close dropdown on link click
+          className={`mb-3 md:mb-0 md:ml-4 flex items-center min-w-[20%] text-center md:text-left ${
+            path === nav.link ? "text-purple-800 text-shadow-glow" : "text-white"
+          }`}
         >
-          <nav.icon
-            className={`w-[24px] h-[24px] ${
-              path === nav.name ? "text-purple-800" : "text-white"
-            }`}
-          />
-          
-        </a>
+          <nav.icon className="w-[24px] h-[24px] mr-2" />
+          <span className="ml-2 md:hidden">{nav.name}</span>
+        </Link>
       ))}
     </div>
   );
