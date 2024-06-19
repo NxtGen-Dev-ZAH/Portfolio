@@ -37,7 +37,7 @@ const Navigation: React.FC<NavigationProps> = ({ onLinkClick }) => {
           href={nav.link}
           onClick={onLinkClick} // Close dropdown on link click
           className={`mb-3 md:mb-0 md:ml-4 flex items-center min-w-[20%] text-center md:text-left ${
-            path === nav.link ? "text-purple-800 text-shadow-glow" : "text-white"
+            path === nav.link ? "text-purple-800 " : "text-white"
           }`}
         >
           <nav.icon className="w-[24px] h-[24px] mr-2" />
