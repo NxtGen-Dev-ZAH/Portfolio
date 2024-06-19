@@ -3,7 +3,9 @@ import Link from "next/link";
 import Image from "next/image";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import useMediaQuery from "@material-ui/core/useMediaQuery";
+import useMediaQuery from "@mui/material/useMediaQuery";
+import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
 
 export default function Home() {
   const ref = useRef(null);
@@ -11,13 +13,13 @@ export default function Home() {
   const isMobile = useMediaQuery("(max-width: 768px)");
 
   return (
-    <div
+    <Box
       className="flex items-center w-full h-full bg-cover bg-center"
       style={{ backgroundImage: "url(/main.jpg)" }}
     >
       {isMobile ? (
         // Mobile View
-        <div className="h-screen pl-5 pt-4 pr-5 flex flex-col gap-5 z-[10] max-w-[830px]">
+        <Box className="h-screen pl-5 pt-4 pr-5 flex flex-col gap-5 z-[10] max-w-[830px]">
           <motion.h1
             ref={ref}
             initial={{ scale: 0.5, opacity: 0 }}
@@ -37,20 +39,20 @@ export default function Home() {
               ZAHEER AHMED
             </motion.span>
           </motion.h1>
-          <p className="text-gray-200 text-[16px] font-medium">
+          <Typography className="text-gray-200 text-[16px] font-medium">
             Explore my portfolio to see examples of my work and understand the
             depths of my capabilities. Contact me to discuss your project and
             see how my skills can bring your vision to life.
-          </p>
-          <div className="relative">
-            <div className="w-40 h-52 mx-auto border-y-2 rounded-full overflow-hidden mt-10">
-              <div
+          </Typography>
+          <Box className="relative">
+            <Box className="w-40 h-52 mx-auto border-y-2 rounded-full overflow-hidden mt-10">
+              <Box
                 className="bg-cover bg-center h-full"
                 style={{ backgroundImage: `url('/mypicx.jpg')` }}
-              ></div>
-            </div>
-          </div>
-          <div className="flex flex-col gap-5 mt-10">
+              ></Box>
+            </Box>
+          </Box>
+          <Box className="flex flex-col gap-5 mt-10">
             <Link
               href="#services"
               className="rounded-[20px] group relative bg-purple-300 hover:bg-purple-200 border-2 border-red-500 px-5 py-3 text-base text-purple-800 font-bold max-w-full text-center"
@@ -75,11 +77,11 @@ export default function Home() {
             >
               Contact me
             </Link>
-          </div>
-        </div>
+          </Box>
+        </Box>
       ) : (
         // Desktop View
-        <div className="hidden md:flex h-screen pl-20 pb-56 flex-col z-[10] max-w-[830px]">
+        <Box className="hidden md:flex h-screen pl-20 pb-56 flex-col z-[10] max-w-[830px]">
           <motion.h1
             ref={ref}
             initial={{ scale: 0.5, opacity: 0 }}
@@ -99,19 +101,19 @@ export default function Home() {
               ZAHEER AHMED
             </motion.span>
           </motion.h1>
-          <p className="text-gray-200 text-[20px] font-medium block mt-5">
+          <Typography className="text-gray-200 text-[20px] font-medium block mt-5">
             Explore my portfolio to see examples of my work and understand the
             depths of my capabilities.
             <br /> Contact me to discuss your project and see how my skills can
             bring your vision to life.
-          </p>
-          <div className="absolute top-28 bottom-32 left-3/4 right-0 border-y-2 w-56 rounded-full overflow-hidden">
-            <div
+          </Typography>
+          <Box className="absolute top-28 bottom-32 left-3/4 right-0 border-y-2 w-56 rounded-full overflow-hidden">
+            <Box
               className="bg-cover bg-center h-full"
               style={{ backgroundImage: `url('/mypicx.jpg')` }}
-            ></div>
-          </div>
-          <div className="flex flex-row gap-5 justify-between mt-7">
+            ></Box>
+          </Box>
+          <Box className="flex flex-row gap-5 justify-between mt-7">
             <Link
               href="#services"
               className="rounded-[20px] group relative bg-purple-300 hover:bg-purple-200 border-2 border-red-500 px-5 py-3 text-lg text-purple-800 font-bold max-w-[200px]"
@@ -136,9 +138,9 @@ export default function Home() {
             >
               Contact me
             </Link>
-          </div>
-        </div>
+          </Box>
+        </Box>
       )}
-    </div>
+    </Box>
   );
 }
