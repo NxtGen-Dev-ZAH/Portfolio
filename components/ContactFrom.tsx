@@ -51,7 +51,7 @@ const ContactForm = () => {
           name="name"
           value={formData.name}
           onChange={handleChange}
-          className="w-full px-3 py-2 text-sm md:text-base text-black placeholder-gray-400 bg-white border-2 border-black rounded shadow"
+          className="w-full px-1 py-2 text-sm md:text-base text-black placeholder-gray-400 bg-white border-2 border-black rounded shadow"
         />
       </div>
       <div className="mb-4">
@@ -61,7 +61,7 @@ const ContactForm = () => {
           name="email"
           value={formData.email}
           onChange={handleChange}
-          className="w-full px-3 py-2 text-sm md:text-base text-black placeholder-gray-400 bg-white border-2 border-black rounded shadow"
+          className="w-full px-1 py-2 text-sm md:text-base text-black placeholder-gray-400 bg-white border-2 border-black rounded shadow"
         />
       </div>
       <div className="mb-4">
@@ -70,7 +70,7 @@ const ContactForm = () => {
           name="message"
           value={formData.message}
           onChange={handleChange}
-          className="w-full px-3 py-2 text-sm md:text-base text-black placeholder-gray-400 bg-white border-2 border-black rounded shadow"
+          className="w-full px-1 py-2 text-sm md:text-base text-black placeholder-gray-400 bg-white border-2 border-black rounded shadow"
         />
       </div>
       <div className="flex justify-center">

@@ -9,12 +9,12 @@ import os
 
 load_dotenv(find_dotenv())
 
-login = "4csg0qv1gyyoxqfs"
-password = "234weab4kqg5vl6d"
+login = os.environ.get("EMAIL_LOGIN")
+password = os.environ.get("EMAIL_PASSWORD")
 port = 2525
-smtp_server = "smtp.mailmug.net"
-sender_email = "deer1768@gmail.com"
-receiver_email = "abbasiatwork400@gmail.com"
+smtp_server = os.environ.get("SMTP_SERVER")
+sender_email = os.environ.get("EMAIL_USER")
+receiver_email = os.environ.get("RECEIVER_EMAIL")
 
 app = FastAPI()
 
@@ -67,9 +67,6 @@ def send_email(form_data: ContactForm):
     except Exception as e:
         print(f"Error: {e}")
         raise HTTPException(status_code=500, detail=f"Unexpected error: {e}")
-
-
-print(login, password, sender_email, receiver_email)
 
 
 @app.post("/api/contact")
