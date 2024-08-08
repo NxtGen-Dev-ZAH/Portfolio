@@ -22,7 +22,7 @@ const Skill = () => {
               isInView ? { scale: 1, opacity: 1 } : { scale: 0.5, opacity: 0 }
             }
             transition={{ duration: 2 }}
-            className="font-semibold text-white hover:text-purple-700 text-4xl md:text-[50px] pt-10"
+            className="font-semibold text-white hover:text-purple-700 text-4xl md:text-[50px] pt-10 md:pt-16"
           >
             Skills{" "}
             <motion.span

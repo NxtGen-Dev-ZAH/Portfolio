@@ -1,146 +1,100 @@
 "use client";
+
 import Link from "next/link";
 import Image from "next/image";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import useMediaQuery from "@mui/material/useMediaQuery";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 
 export default function Home() {
   const ref = useRef(null);
   const isInView = useInView(ref);
-  const isMobile = useMediaQuery("(max-width: 768px)");
 
   return (
     <Box
-      className="flex items-center w-full h-full bg-cover bg-center"
+      className="flex items-center w-full min-h-screen bg-cover bg-center px-4 md:px-20"
       style={{ backgroundImage: "url(/main.jpg)" }}
     >
-      {isMobile ? (
-        // Mobile View
-        <Box className="h-screen pl-5 pt-4 pr-5 flex flex-col gap-5 z-[10] max-w-[830px]">
-          <motion.h1
-            ref={ref}
-            initial={{ scale: 0.5, opacity: 0 }}
-            animate={
-              isInView ? { scale: 1, opacity: 1 } : { scale: 0.5, opacity: 0 }
-            }
-            transition={{ duration: 2 }}
-            className="text-[30px] text-white font-semibold pt-24"
-          >
-            HI, I AM&nbsp;
-            <motion.span
-              className="text-transparent bg-clip-text bg-gradient-to-tr from-blue-700 to-red-500"
-              initial={{ opacity: 0 }}
-              animate={isInView ? { opacity: 1 } : { opacity: 0 }}
-              transition={{ duration: 2, delay: 1 }}
+      <Box className="w-full max-w-7xl mx-auto ">
+        <Box className="flex flex-col md:flex-row items-center justify-between ">
+          <Box className="w-full md:w-1/2 mb-8 md:mb-0">
+            <motion.h1
+              ref={ref}
+              initial={{ scale: 0.5, opacity: 0 }}
+              animate={
+                isInView ? { scale: 1, opacity: 1 } : { scale: 0.5, opacity: 0 }
+              }
+              transition={{ duration: 2 }}
+              className="text-3xl md:text-5xl text-white font-semibold mb-4"
             >
-              ZAHEER AHMED
-            </motion.span>
-          </motion.h1>
-          <Typography className="text-gray-200 text-[16px] font-medium">
-            Explore my portfolio to see examples of my work and understand the
-            depths of my capabilities. Contact me to discuss your project and
-            see how my skills can bring your vision to life.
-          </Typography>
-          <Box className="relative">
-            <Box className="w-40 h-52 mx-auto border-y-2 rounded-full overflow-hidden mt-10">
-              <Box
-                className="bg-cover bg-center h-full"
-                style={{ backgroundImage: `url('/mypicx.jpg')` }}
-              ></Box>
+              HI, I AM&nbsp;
+              <motion.span
+                className="text-transparent bg-clip-text bg-gradient-to-tr from-blue-700 to-red-500"
+                initial={{ opacity: 0 }}
+                animate={isInView ? { opacity: 1 } : { opacity: 0 }}
+                transition={{ duration: 2, delay: 1 }}
+              >
+                ZAHEER AHMED
+              </motion.span>
+            </motion.h1>
+            <Typography className="text-gray-200 text-base md:text-lg font-medium mb-6">
+              Explore my portfolio to see examples of my work and understand the
+              depths of my capabilities. <br />Contact me to discuss your project and
+              see how my skills can bring your vision to life.
+            </Typography>
+            <Box className="md:hidden flex justify-center mb-6">
+              <Box className="w-48 h-48 border-y-4 border-purple-700 rounded-full overflow-hidden">
+                <Image
+                  src="/mypicx.jpg"
+                  alt="Profile Picture"
+                  width={192}
+                  height={192}
+                  className="w-full h-full object-cover"
+                />
+              </Box>
+            </Box>
+
+            <Box className="flex flex-col md:flex-row gap-4 md:gap-6">
+              <Link
+                href="#services"
+                className="rounded-[20px] bg-purple-300 hover:bg-purple-200 border-2 border-red-500 px-4 py-2 text-sm md:text-lg text-purple-800 font-bold  text-center"
+              >
+                My Services
+              </Link>
+              <Link
+                href="#skills"
+                className="rounded-[20px] bg-purple-300 hover:bg-purple-200 border-2 border-red-500 px-4 py-2 text-sm md:text-lg text-purple-800 font-bold text-center"
+              >
+                Learn more
+              </Link>
+              <Link
+                href="#projects"
+                className="rounded-[20px] bg-purple-300 hover:bg-purple-200 border-2 border-red-500 px-4 py-2 text-sm md:text-lg text-purple-800 font-bold text-center"
+              >
+                My projects
+              </Link>
+              <Link
+                href="#contact"
+                className="rounded-[20px] bg-purple-300 hover:bg-purple-200 border-2 border-red-500 px-4 py-2 text-sm md:text-lg text-purple-800 font-bold text-center"
+              >
+                Contact me
+              </Link>
             </Box>
           </Box>
-          <Box className="flex flex-col gap-5 mt-10">
-            <Link
-              href="#services"
-              className="rounded-[20px] group relative bg-purple-300 hover:bg-purple-200 border-2 border-red-500 px-5 py-3 text-base text-purple-800 font-bold max-w-full text-center"
-            >
-              My Services
-            </Link>
-            <Link
-              href="#skills"
-              className="rounded-[20px] group relative bg-purple-300 hover:bg-purple-200 border-2 border-red-500 px-5 py-3 text-base text-purple-800 font-bold max-w-full text-center"
-            >
-              Learn more
-            </Link>
-            <Link
-              href="#projects"
-              className="rounded-[20px] group relative bg-purple-300 hover:bg-purple-200 border-2 border-red-500 px-5 py-3 text-base text-purple-800 font-bold max-w-full text-center"
-            >
-              My projects
-            </Link>
-            <Link
-              href="#contact"
-              className="rounded-[20px] group relative bg-purple-300 hover:bg-purple-200 border-2 border-red-500 px-5 py-3 text-base text-purple-800 font-bold max-w-full text-center"
-            >
-              Contact me
-            </Link>
+          <Box className="hidden md:flex w-full md:w-1/2  justify-center">
+            <Box className="w-48 h-48 md:w-56 md:h-64 border-y-4 border-purple-700 rounded-full overflow-hidden">
+              <Image
+                src="/mypicx.jpg"
+                alt="Profile Picture"
+                width={224}
+                height={224}
+                className="w-full h-full object-cover"
+              />
+            </Box>
           </Box>
         </Box>
-      ) : (
-        // Desktop View
-        <Box className="hidden md:flex h-screen pl-20 pb-56 flex-col z-[10] max-w-[830px]">
-          <motion.h1
-            ref={ref}
-            initial={{ scale: 0.5, opacity: 0 }}
-            animate={
-              isInView ? { scale: 1, opacity: 1 } : { scale: 0.5, opacity: 0 }
-            }
-            transition={{ duration: 2 }}
-            className="text-4xl md:text-6xl text-white font-semibold pt-40"
-          >
-            HI, I AM&nbsp;
-            <motion.span
-              className="text-transparent bg-clip-text bg-gradient-to-tr from-blue-700 to-red-500"
-              initial={{ opacity: 0 }}
-              animate={isInView ? { opacity: 1 } : { opacity: 0 }}
-              transition={{ duration: 2, delay: 1 }}
-            >
-              ZAHEER AHMED
-            </motion.span>
-          </motion.h1>
-          <Typography className="text-gray-200 text-[20px] font-medium block mt-5">
-            Explore my portfolio to see examples of my work and understand the
-            depths of my capabilities.
-            <br /> Contact me to discuss your project and see how my skills can
-            bring your vision to life.
-          </Typography>
-          <Box className="absolute top-28 bottom-32 left-3/4 right-0 border-y-2 w-56 rounded-full overflow-hidden">
-            <Box
-              className="bg-cover bg-center h-full"
-              style={{ backgroundImage: `url('/mypicx.jpg')` }}
-            ></Box>
-          </Box>
-          <Box className="flex flex-row gap-5 justify-between mt-7">
-            <Link
-              href="#services"
-              className="rounded-[20px] group relative bg-purple-300 hover:bg-purple-200 border-2 border-red-500 px-5 py-3 text-lg text-purple-800 font-bold max-w-[200px]"
-            >
-              My Services
-            </Link>
-            <Link
-              href="#skills"
-              className="rounded-[20px] group relative bg-purple-300 hover:bg-purple-200 border-2 border-red-500 px-5 py-3 text-lg text-purple-800 font-bold max-w-[200px]"
-            >
-              Learn more
-            </Link>
-            <Link
-              href="#projects"
-              className="rounded-[20px] group relative bg-purple-300 hover:bg-purple-200 border-2 border-red-500 px-5 py-3 text-lg text-purple-800 font-bold max-w-[200px]"
-            >
-              My projects
-            </Link>
-            <Link
-              href="#contact"
-              className="rounded-[20px] group relative bg-purple-300 hover:bg-purple-200 border-2 border-red-500 px-5 py-3 text-lg text-purple-800 font-bold max-w-[200px]"
-            >
-              Contact me
-            </Link>
-          </Box>
-        </Box>
-      )}
+      </Box>
     </Box>
   );
 }

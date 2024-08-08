@@ -5,7 +5,7 @@ const Contact = () => {
   return (
     <div
       style={{ backgroundImage: "url(gradientpurple.jpg)" }}
-      className="w-screen h-screen bg-cover bg-center flex items-center justify-center "
+      className="w-screen h-screen bg-cover bg-center flex items-center justify-center pt-4 "
     >
       <div
         style={{ backgroundImage: "url(atombg-comp.png" }}
