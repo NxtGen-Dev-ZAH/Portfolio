@@ -12,7 +12,7 @@ const Skill = () => {
   const ref = useRef(null);
   const isInView = useInView(ref);
   return (
-    <div className="bg-gradient-to-t from-purple-900 via-blue-950 to-slate-900 min-h-screen w-screen flex items-center justify-center p-5 md:p-0">
+    <div className="bg-gradient-to-t from-purple-900 via-blue-950 to-slate-900 min-h-screen w-full flex items-center justify-center p-5 md:p-0">
       <div className="flex flex-col gap-8 md:gap-14 max-w-full md:max-w-[80%] text-center items-center">
         <div className="flex flex-col items-center gap-2">
           <motion.h1

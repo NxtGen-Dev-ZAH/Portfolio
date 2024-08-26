@@ -10,12 +10,9 @@ import Image from "next/image";
 
 export default function Main() {
   return (
-    <main className="w-screen h-screen relative overflow-y-auto">
-      <div>
-        <Navbar />
-      </div>
+    <main className="w-screen h-screen relative overflow-y-auto bg-gradient-to-r from-purple-900 via-pink-950 to-red-950">
+      <Navbar />
       <div id="home">
-        {" "}
         <Home />
       </div>
       <div id="services">

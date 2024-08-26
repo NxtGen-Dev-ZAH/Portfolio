@@ -1,4 +1,3 @@
-import { RxHome, RxPerson, RxDashboard, RxClipboard, RxColorWheel, RxGear } from "react-icons/rx";
 
 export const SkillData = [
   {
@@ -165,32 +164,5 @@ export const Projects = [
     title: "FULLSTACK PROBLEM SOLVER AI/CHAT COMPLETION APP",
     text: "A cutting-edge problem solver app using Next.js, FastAPI, and OpenAI APIs, featuring an intuitive chat interface for solving complex problems efficiently.",
     src: "/PROBLEM_SOLVER.png",
-  },
-];
-export const NavLinks = [
-  {
-    name: "Home",
-    icon: RxHome,
-    link: "#home", // Add section ID prefixed with #
-  },
-  {
-    name: "Services",
-    icon: RxGear,
-    link: "#services", // Add section ID prefixed with #
-  },
-  {
-    name: "Skills",
-    icon: RxPerson,
-    link: "#skills", // Add section ID prefixed with #
-  },
-  {
-    name: "Projects",
-    icon: RxDashboard,
-    link: "#projects", // Add section ID prefixed with #
-  },
-  {
-    name: "Contact Me",
-    icon: RxClipboard,
-    link: "#contact", // Add section ID prefixed with #
   },
 ];
