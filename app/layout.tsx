@@ -1,17 +1,10 @@
 import type { Metadata } from "next";
-import { Roboto } from "next/font/google";
 import "./globals.css";
-
-const roboto = Roboto({
-  weight: ["400", "700"],
-  style: ["normal", "italic"],
-  subsets: ["latin"],
-  display: "swap",
-});
+import Head from "next/head";
 
 export const metadata: Metadata = {
   title: "Zaheer Portfolio",
-  description: "PORTFOLIO ABOUT ME",
+  description: "PORTFOLIO OF ZAHEER AHMED",
 };
 
 export default function RootLayout({
@@ -20,7 +13,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={roboto.className}>
+    <html lang="en">
+      <Head>
+        <link
+          href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+          rel="stylesheet"
+        />
+      </Head>
       <body>{children}</body>
     </html>
   );

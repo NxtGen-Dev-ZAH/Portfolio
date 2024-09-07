@@ -10,25 +10,24 @@ import Image from "next/image";
 
 export default function Main() {
   return (
-    <main className="w-screen h-screen relative overflow-y-auto bg-gradient-to-r from-purple-900 via-pink-950 to-red-950">
-      <Navbar />
+    <main
+      className="h-screen min-w-screen bg-cover bg-center"
+      style={{ backgroundImage: "url(/main.jpg)" }}
+    >
       <div id="home">
+        <Navbar />
         <Home />
       </div>
       <div id="services">
-        {" "}
         <Services />
       </div>
       <div id="skills">
-        {" "}
         <Skill />
       </div>
       <div id="projects">
-        {" "}
         <Project />
       </div>
       <div id="contact">
-        {" "}
         <Contact />
       </div>
       <div>

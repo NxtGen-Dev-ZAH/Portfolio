@@ -12,12 +12,9 @@ export default function Home() {
   const isInView = useInView(ref);
 
   return (
-    <Box
-      className="flex items-center w-full min-h-screen bg-cover bg-center px-4 md:px-20"
-      style={{ backgroundImage: "url(/main.jpg)" }}
-    >
-      <Box className="w-full max-w-7xl mx-auto ">
-        <Box className="flex flex-col md:flex-row items-center justify-between ">
+    <div className="flex items-center  w-full h-screen bg-transparent px-4 md:px-20">
+      <div className="w-full max-w-7xl mx-auto ">
+        <div className="flex flex-col md:flex-row items-center justify-between ">
           <Box className="w-full md:w-1/2 mb-8 md:mb-0">
             <motion.h1
               ref={ref}
@@ -38,15 +35,16 @@ export default function Home() {
                 ZAHEER AHMED
               </motion.span>
             </motion.h1>
-            <Typography className="text-gray-200 text-base md:text-lg font-medium mb-6">
+            <p className="text-gray-200 text-base md:text-lg font-medium mb-6">
               Explore my portfolio to see examples of my work and understand the
-              depths of my capabilities. <br />Contact me to discuss your project and
-              see how my skills can bring your vision to life.
-            </Typography>
+              depths of my capabilities. <br />
+              Contact me to discuss your project and see how my skills can bring
+              your vision to life.
+            </p>
             <Box className="md:hidden flex justify-center mb-6">
-              <Box className="w-48 h-48 border-y-4 border-purple-700 rounded-full overflow-hidden">
+              <Box className="w-48 h-48 border-y-4 border-purple-700 rounded-full ">
                 <Image
-                  src="/mypicx.jpg"
+                  src="/mypicx.png"
                   alt="Profile Picture"
                   width={192}
                   height={192}
@@ -58,43 +56,44 @@ export default function Home() {
             <Box className="flex flex-col md:flex-row gap-4 md:gap-6">
               <Link
                 href="#services"
-                className="rounded-[20px] bg-purple-300 hover:bg-purple-200 border-2 border-red-500 px-4 py-2 text-sm md:text-lg text-purple-800 font-bold  text-center"
+                className="rounded-[20px] bg-black bg-opacity-15 hover:bg-purple-950 border-2 border-red-500 px-4 py-2 text-sm md:text-lg text-gray-200 font-bold  text-center"
               >
                 My Services
               </Link>
               <Link
                 href="#skills"
-                className="rounded-[20px] bg-purple-300 hover:bg-purple-200 border-2 border-red-500 px-4 py-2 text-sm md:text-lg text-purple-800 font-bold text-center"
+                className="rounded-[20px] bg-black bg-opacity-15 hover:bg-purple-950 border-2 border-red-500 px-4 py-2 text-sm md:text-lg text-gray-200 font-bold text-center"
               >
                 Learn more
               </Link>
               <Link
                 href="#projects"
-                className="rounded-[20px] bg-purple-300 hover:bg-purple-200 border-2 border-red-500 px-4 py-2 text-sm md:text-lg text-purple-800 font-bold text-center"
+                className="rounded-[20px] bg-black bg-opacity-15 hover:bg-purple-950 border-2 border-red-500 px-4 py-2 text-sm md:text-lg text-gray-200 font-bold text-center"
               >
                 My projects
               </Link>
               <Link
                 href="#contact"
-                className="rounded-[20px] bg-purple-300 hover:bg-purple-200 border-2 border-red-500 px-4 py-2 text-sm md:text-lg text-purple-800 font-bold text-center"
+                className="rounded-[20px] bg-black bg-opacity-15 hover:bg-purple-950 border-2 border-red-500 px-4 py-2 text-sm md:text-lg text-gray-200 font-bold text-center"
               >
                 Contact me
               </Link>
             </Box>
           </Box>
-          <Box className="hidden md:flex w-full md:w-1/2  justify-center">
-            <Box className="w-48 h-48 md:w-56 md:h-64 border-y-4 border-purple-700 rounded-full overflow-hidden">
+          <div className="hidden md:flex w-full md:w-1/2  justify-center">
+            <div className="w-48 h-48 md:w-80 md:h-80 border-y-4 relative  border-purple-700 rounded-full overflow-hidden">
               <Image
-                src="/mypicx.jpg"
+                src="/mypicx.png"
                 alt="Profile Picture"
-                width={224}
-                height={224}
-                className="w-full h-full object-cover"
+                // width={224}
+                // height={224}
+                className="object-cover"
+                fill
               />
-            </Box>
-          </Box>
-        </Box>
-      </Box>
-    </Box>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 }

@@ -28,34 +28,26 @@ const Navbar: React.FC = () => {
     <nav
       className={` h-[60px] md:h-[80px]   sticky top-0 left-0 right-0 z-50
       w-full flex justify-center items-center
-      px-4 sm:px-8 lg:px-16
+      px-4 sm:px-8 lg:px-16 
       border-black border
       transition-all duration-300 ease-in-out   ${
         scrolled
-          ? "bg-opacity-100 bg-gray-950"
+          ? "bg-opacity-65 bg-gray-950 "
           : "bg-opacity-100 bg-transparent"
       }
     `}
     >
-      <a href="#home">
-        <div className="flex flex-row gap-2 md:gap-3 items-center">
-          <div className="relative">
-            <Image
-              src="/logoport.jpg"
-              alt="logo"
-              width={30}
-              height={30}
-              className="w-auto h-auto object-contain rounded-full"
-            />
-          </div>
-          <h1 className="text-white text-[14px] md:text-[25px] font-semibold">
-            ZAHEER{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-red-500">
-              PORTFOLIO
-            </span>
-          </h1>
-        </div>
-      </a>
+      <div>
+        <a href="#home">
+          <Image
+            src="/LOGO.png"
+            alt="logo"
+            width={200}
+            height={50}
+            className="object-cover rounded-full"
+          />
+        </a>
+      </div>
       <div className="hidden md:flex flex-grow justify-center">
         <Navigation />
       </div>
