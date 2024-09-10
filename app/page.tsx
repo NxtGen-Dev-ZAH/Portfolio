@@ -7,9 +7,9 @@ import Footer from "../components/footer";
 import Contact from "../components/Contact";
 import Project from "../components/project";
 import Skill from "../components/skill";
-import ChatIcon from "../components/Chatbot";
 import Image from "next/image";
 import TestimonialsAndFAQs from "../components/Testimonial";
+import ChatIcon from "../components/Chatbot";
 
 export default function Main() {
   return (
