@@ -22,7 +22,7 @@ const ChatIcon: React.FC = () => {
         setMessages((prev) => [
           ...prev,
           {
-            text: "Thanks for your message! This is a placeholder response.",
+            text: "Thanks for your message! This is a Zaheer Ahmed Portfolio ! If you have any questions, please contact us by filling out the Contact Form",
             sender: "bot",
           },
         ]);
@@ -31,13 +31,13 @@ const ChatIcon: React.FC = () => {
   };
 
   return (
-    <div className="fixed bottom-4 right-4 z-[100]">
+    <div className="fixed bottom-12 right-12 z-[100]">
       {" "}
       {/* Increased z-index */}
       {isOpen ? (
         <div className="bg-purple-600 rounded-lg shadow-lg w-80 h-96 flex flex-col">
-          <div className="bg-purple-500 text-white p-4 rounded-t-lg flex justify-between items-center">
-            <h3 className="font-bold">Chat</h3>
+          <div className="bg-purple-600  p-4 rounded-t-lg flex justify-between items-center">
+            <h3 className="font-bold text-xl text-cyan-300  tracking-widest">CHAT </h3>
             <button onClick={toggleChat} className="text-white">
               <X size={20} />
             </button>
@@ -48,13 +48,13 @@ const ChatIcon: React.FC = () => {
             {messages.map((message, index) => (
               <div
                 key={index}
-                className={`mb-2 ${
-                  message.sender === "user" ? "text-right" : "text-left"
+                className={`mb-2 text-black ${
+                  message.sender === "user" ? "text-right font-medium" : "text-left"
                 }`}
               >
                 <span
                   className={`inline-block p-2 rounded-lg ${
-                    message.sender === "user" ? "bg-purple-100" : "bg-gray-100"
+                    message.sender === "user" ? "bg-purple-400" : "bg-gray-100"
                   }`}
                 >
                   {message.text}
@@ -73,7 +73,7 @@ const ChatIcon: React.FC = () => {
                   setInputMessage(e.target.value)
                 }
                 placeholder="Type a message..."
-                className="flex-1 border rounded-l-lg p-2"
+                className="flex-1 border rounded-l-lg p-2 text-black"
               />
               <button
                 onClick={handleSendMessage}
@@ -89,7 +89,7 @@ const ChatIcon: React.FC = () => {
           onClick={toggleChat}
           className="bg-purple-500 text-white p-4 rounded-full shadow-lg hover:bg-purple-600 transition-colors"
         >
-          <MessageCircle size={24} />
+          <MessageCircle size={32} />
         </button>
       )}
     </div>
