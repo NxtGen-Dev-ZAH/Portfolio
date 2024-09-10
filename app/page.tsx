@@ -7,6 +7,7 @@ import Footer from "../components/footer";
 import Contact from "../components/Contact";
 import Project from "../components/project";
 import Skill from "../components/skill";
+import ChatIcon from "../components/CHATBOT";
 import Image from "next/image";
 import TestimonialsAndFAQs from "../components/Testimonial";
 
@@ -50,6 +51,10 @@ export default function Main() {
         width={600}
         className="absolute top-0 right-0 z-[10]"
       />
+      <div className="fixed bottom-4 right-4 z-10 bg-red-500 p-2 text-white">
+        Debug: ChatIcon should be here
+        <ChatIcon />
+      </div>
     </main>
   );
 }

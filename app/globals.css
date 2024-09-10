@@ -24,7 +24,10 @@ body{
     @layer font-roboto;
 
 }
-
+html {
+    scroll-behavior: smooth;
+  }
+  
 @font-face {
     font-family: 'Roboto';
     font-style: normal;

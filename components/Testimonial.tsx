@@ -11,8 +11,8 @@ const testimonials = [
   },
   {
     name: "Haris Morris",
-   position: "Senior Dev, StartUp Creators",
-content:
+    position: "Senior Dev, StartUp Creators",
+    content:
       "Zaheer's expertise in full-stack development helped us launch a scalable product in record time. His professionalism and commitment to excellence are unparalleled.",
   },
   {

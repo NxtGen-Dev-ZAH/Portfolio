@@ -1,11 +1,9 @@
-// NAVIGATION.TSX
 import React, { useEffect, useState } from "react";
 import {
   RxHome,
   RxPerson,
   RxDashboard,
   RxClipboard,
-  RxColorWheel,
   RxGear,
 } from "react-icons/rx";
 
@@ -13,27 +11,27 @@ const NavLinks = [
   {
     name: "Home",
     icon: RxHome,
-    link: "#home", // Add section ID prefixed with #
+    link: "#home",
   },
   {
     name: "Services",
     icon: RxGear,
-    link: "#services", // Add section ID prefixed with #
+    link: "#services",
   },
   {
     name: "Skills",
     icon: RxPerson,
-    link: "#skills", // Add section ID prefixed with #
+    link: "#skills",
   },
   {
     name: "Projects",
     icon: RxDashboard,
-    link: "#projects", // Add section ID prefixed with #
+    link: "#projects",
   },
   {
     name: "Contact Me",
     icon: RxClipboard,
-    link: "#contact", // Add section ID prefixed with #
+    link: "#contact",
   },
 ];
 
@@ -69,13 +67,17 @@ const Navigation: React.FC = () => {
       section.scrollIntoView({ behavior: "smooth" });
     }
   };
+
   return (
     <div className="flex flex-col md:flex-row justify-center md:justify-between items-center w-full md:w-auto py-2 md:py-0">
       {NavLinks.map((nav) => (
         <a
           key={nav.name}
           href={nav.link}
-          onClick={() => handleClick(nav.link)} // Close dropdown on link click
+          onClick={(e) => {
+            e.preventDefault(); // Prevent default anchor behavior
+            handleClick(nav.link);
+          }}
           className={`mb-2 md:mb-0 md:ml-2 flex items-center justify-center md:justify-start min-w-[120px] md:min-w-[100px] text-center md:text-left pt-2 md:pt-0 pb-1 border-b-2
             ${
               activelink === nav.link
@@ -84,13 +86,6 @@ const Navigation: React.FC = () => {
             }`}
         >
           <nav.icon className="w-[20px] h-[20px] mr-2" />
-          {/* <span
-            className={` ${
-              activelink === nav.link
-                ? "text-base md:text-lg font-bold"
-                : "text-sm md:text-base"
-            }`}
-          > */}
           {nav.name}
         </a>
       ))}

@@ -105,8 +105,8 @@ const Services: React.FC = () => {
 
             className={`${
               activeService === service.name.toLowerCase()
-                ? "bg-purple-800 rounded-br-3xl rounded-tl-3xl font-extrabold ring-2 ring-offset-2 ring-offset-purple"
-                : "bg-purple-500 hover:bg-purple-700"
+                ? "bg-purple-800 rounded-br-3xl rounded-tl-3xl font-extrabold ring-2 ring-offset-2 ring-offset-gray-300"
+                : "bg-purple-600 hover:bg-purple-700"
             } text-white font-semibold py-2 px-4 rounded w-full sm:w-40 md:w-56`}
             onClick={() => handleServiceClick(service.name.toLowerCase())}
           >
@@ -147,7 +147,7 @@ const Services: React.FC = () => {
           </div>
           <div className="flex justify-center items-center text-center md:mb-0 mb-4">
             <Link href="#contact">
-              <button className="flex gap-2 items-center justify-center bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded mt-6 ring-2 ring-offset-1 ring-offset-purple">
+              <button className="flex gap-2 items-center justify-center bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded mt-6 ring-2 ring-offset-1 ring-offset-gray-300">
                 Let's Chat
                 <RxEyeOpen size={24} color="#fff" />
               </button>

@@ -31,7 +31,7 @@ const Navbar: React.FC = () => {
       transition-all duration-300 ease-in-out ${
         scrolled
           ? "bg-opacity-80 bg-gray-950"
-          : "bg-opacity-0 bg-transparent pointer-events-none"
+          : "bg-opacity-0 bg-transparent "
       }`}
     >
       <div>

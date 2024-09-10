@@ -51,7 +51,7 @@ const Skill = () => {
             technical expertise with creative problem-solving to craft digital
             experiences that exceed expectations.
           </p>
-          <button className="bg-white text-black py-2 px-4 rounded-lg hover:bg-gradient-to-r from-purple-700 via-transparent to-purple-700 transition-all duration-100 mt-4 border-2 border-red-500">
+          <button className="bg-purple-600 text-black py-2 px-4 rounded-lg hover:bg-gradient-to-r from-purple-700 via-white to-purple-700 transition-all duration-100 mt-4 border-2 border-red-500">
             <Link href="#contact">Let's Collaborate</Link>
           </button>
         </div>

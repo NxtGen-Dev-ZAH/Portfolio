@@ -1,7 +1,5 @@
 // HOME.TSX
 "use client";
-
-import Link from "next/link";
 import Image from "next/image";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
@@ -27,7 +25,7 @@ export default function Home() {
             >
               HI, I AM&nbsp;
               <motion.span
-                className="text-transparent bg-clip-text bg-gradient-to-tr from-blue-700 to-red-500"
+                className="text-transparent bg-clip-text bg-gradient-to-tr from-blue-700 to-purple-500"
                 initial={{ opacity: 0 }}
                 animate={isInView ? { opacity: 1 } : { opacity: 0 }}
                 transition={{ duration: 2, delay: 1 }}
@@ -54,30 +52,30 @@ export default function Home() {
             </Box>
 
             <Box className="flex flex-col md:flex-row gap-4 md:gap-6">
-              <Link
+              <a
                 href="#services"
-                className="rounded-[20px] bg-black bg-opacity-15 hover:bg-purple-950 border-2 border-red-500 px-4 py-2 text-sm md:text-lg text-gray-200 font-bold  text-center"
+                className="rounded-[20px] bg-black bg-opacity-15 hover:bg-purple-950 border-2 border-purple-500 px-4 py-2 text-sm md:text-lg text-gray-200 font-bold  text-center"
               >
                 My Services
-              </Link>
-              <Link
+              </a>
+              <a
                 href="#skills"
-                className="rounded-[20px] bg-black bg-opacity-15 hover:bg-purple-950 border-2 border-red-500 px-4 py-2 text-sm md:text-lg text-gray-200 font-bold text-center"
+                className="rounded-[20px] bg-black bg-opacity-15 hover:bg-purple-950 border-2 border-purple-500 px-4 py-2 text-sm md:text-lg text-gray-200 font-bold text-center"
               >
                 Learn more
-              </Link>
-              <Link
+              </a>
+              <a
                 href="#projects"
-                className="rounded-[20px] bg-black bg-opacity-15 hover:bg-purple-950 border-2 border-red-500 px-4 py-2 text-sm md:text-lg text-gray-200 font-bold text-center"
+                className="rounded-[20px] bg-black bg-opacity-15 hover:bg-purple-950 border-2 border-purple-500 px-4 py-2 text-sm md:text-lg text-gray-200 font-bold text-center"
               >
                 My projects
-              </Link>
-              <Link
+              </a>
+              <a
                 href="#contact"
-                className="rounded-[20px] bg-black bg-opacity-15 hover:bg-purple-950 border-2 border-red-500 px-4 py-2 text-sm md:text-lg text-gray-200 font-bold text-center"
+                className="rounded-[20px] bg-black bg-opacity-15 hover:bg-purple-950 border-2 border-purple-500 px-4 py-2 text-sm md:text-lg text-gray-200 font-bold text-center"
               >
                 Contact me
-              </Link>
+              </a>
             </Box>
           </Box>
           <div className="hidden md:flex w-full md:w-1/2  justify-center">
