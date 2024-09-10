@@ -9,8 +9,7 @@ import Project from "../components/project";
 import Skill from "../components/skill";
 import Image from "next/image";
 import TestimonialsAndFAQs from "../components/Testimonial";
-import Chaticon from "../components/chatbot";
-
+import Chaticon from "../components/chaticonn";
 export default function Main() {
   return (
     <main

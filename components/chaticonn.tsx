@@ -6,7 +6,7 @@ interface Message {
   sender: "user" | "bot";
 }
 
-const ChatIcon: React.FC = () => {
+const Chaticon: React.FC = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [messages, setMessages] = useState<Message[]>([]);
   const [inputMessage, setInputMessage] = useState<string>("");
@@ -37,7 +37,9 @@ const ChatIcon: React.FC = () => {
       {isOpen ? (
         <div className="bg-purple-600 rounded-lg shadow-lg w-80 h-96 flex flex-col">
           <div className="bg-purple-600  p-4 rounded-t-lg flex justify-between items-center">
-            <h3 className="font-bold text-xl text-cyan-300  tracking-widest">CHAT </h3>
+            <h3 className="font-bold text-xl text-cyan-300  tracking-widest">
+              CHAT{" "}
+            </h3>
             <button onClick={toggleChat} className="text-white">
               <X size={20} />
             </button>
@@ -49,7 +51,9 @@ const ChatIcon: React.FC = () => {
               <div
                 key={index}
                 className={`mb-2 text-black ${
-                  message.sender === "user" ? "text-right font-medium" : "text-left"
+                  message.sender === "user"
+                    ? "text-right font-medium"
+                    : "text-left"
                 }`}
               >
                 <span
@@ -96,4 +100,5 @@ const ChatIcon: React.FC = () => {
   );
 };
 
-export default ChatIcon;
+export default Chaticon;
+
