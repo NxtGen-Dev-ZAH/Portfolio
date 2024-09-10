@@ -1,3 +1,4 @@
+// HOME.TSX
 "use client";
 
 import Link from "next/link";
@@ -5,7 +6,6 @@ import Image from "next/image";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
 
 export default function Home() {
   const ref = useRef(null);

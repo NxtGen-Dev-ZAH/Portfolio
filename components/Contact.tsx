@@ -1,3 +1,4 @@
+// CONTACT.TSX
 "use client";
 import React, { useState, FormEvent } from "react";
 import { z } from "zod";
@@ -221,10 +222,10 @@ export default function ContactUs(): React.ReactElement {
                 </span>
               )}
             </div>
-            <div>
+            <div className="mx-auto items-center flex justify-center">
               <button
                 type="submit"
-                className="text-white bg-purple-600 border-0 py-2 px-6 focus:outline-none hover:bg-purple-700 rounded text-lg"
+                className="text-white bg-purple-600 border-0 py-2 px-6 focus:outline-none hover:bg-purple-700 rounded text-lg "
               >
                 Submit
               </button>

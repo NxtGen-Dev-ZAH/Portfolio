@@ -1,10 +1,9 @@
-"use client";
+// NAVBAR.TSX
 import { Socials } from "@/constants";
 import Image from "next/image";
 import React, { useState, useEffect } from "react";
 import Navigation from "./Navigation";
 import Link from "next/link";
-import { FaBars, FaTimes } from "react-icons/fa";
 
 const Navbar: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -17,7 +16,6 @@ const Navbar: React.FC = () => {
         setScrolled(isScrolled);
       }
     };
-
     window.addEventListener("scroll", handleScroll);
     return () => {
       window.removeEventListener("scroll", handleScroll);
@@ -26,16 +24,15 @@ const Navbar: React.FC = () => {
 
   return (
     <nav
-      className={` h-[60px] md:h-[80px]   sticky top-0 left-0 right-0 z-50
+      className={`h-[60px] md:h-[80px] fixed top-0 left-0 right-0 z-50
       w-full flex justify-center items-center
-      px-4 sm:px-8 lg:px-16 
+      px-4 sm:px-8 lg:px-16
       border-black border
-      transition-all duration-300 ease-in-out   ${
+      transition-all duration-300 ease-in-out ${
         scrolled
-          ? "bg-opacity-65 bg-gray-950 "
-          : "bg-opacity-100 bg-transparent"
-      }
-    `}
+          ? "bg-opacity-80 bg-gray-950"
+          : "bg-opacity-0 bg-transparent pointer-events-none"
+      }`}
     >
       <div>
         <a href="#home">

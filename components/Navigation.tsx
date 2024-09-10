@@ -1,3 +1,4 @@
+// NAVIGATION.TSX
 import React, { useEffect, useState } from "react";
 import {
   RxHome,
@@ -47,7 +48,7 @@ const Navigation: React.FC = () => {
         if (
           section &&
           section.getBoundingClientRect().top <= 60 &&
-          section.getBoundingClientRect().bottom > 300
+          section.getBoundingClientRect().bottom > 100
         ) {
           currentLink = nav.link;
         }
@@ -75,10 +76,10 @@ const Navigation: React.FC = () => {
           key={nav.name}
           href={nav.link}
           onClick={() => handleClick(nav.link)} // Close dropdown on link click
-          className={`mb-2 md:mb-0 md:ml-4 flex items-center justify-center md:justify-start min-w-[120px] md:min-w-[100px] text-center md:text-left pt-2 md:pt-0 pb-1 border-b-2
+          className={`mb-2 md:mb-0 md:ml-2 flex items-center justify-center md:justify-start min-w-[120px] md:min-w-[100px] text-center md:text-left pt-2 md:pt-0 pb-1 border-b-2
             ${
               activelink === nav.link
-                ? "text-purple-800 border-purple-700 "
+                ? "text-purple-800 border-purple-700 font-bold"
                 : "text-white border-transparent hover:border-purple-700 hover:text-purple-800"
             }`}
         >

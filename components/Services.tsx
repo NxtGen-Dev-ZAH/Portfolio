@@ -1,3 +1,4 @@
+// SERVICES.TSX
 import Image from "next/image";
 import React, { useState, useRef } from "react";
 import { RxEyeOpen } from "react-icons/rx";
@@ -92,10 +93,16 @@ const Services: React.FC = () => {
           Here are some of the services I provide:
         </span>
       </p>
-      <div className="grid grid-cols-2 md:flex md:flex-wrap justify-center gap-4 mb-8 md:gap-10 md:mb-4">
+      <motion.div className="grid grid-cols-2 md:flex md:flex-wrap justify-center gap-4 mb-8 md:gap-10 md:mb-4"
+                  ref={ref}
+       initial={{ opacity: 0, y: 50 }}
+       animate={ isInView ? { opacity: 1, y: 0 ,scale:1}: { scale: 0.5, opacity: 0.5 }}
+       transition={{ duration: 0.5 ,delay:0.2}}
+     >
         {services.map((service) => (
           <button
             key={service.name}
+
             className={`${
               activeService === service.name.toLowerCase()
                 ? "bg-purple-800 rounded-br-3xl rounded-tl-3xl font-extrabold ring-2 ring-offset-2 ring-offset-purple"
@@ -106,7 +113,7 @@ const Services: React.FC = () => {
             {service.name}
           </button>
         ))}
-      </div>
+      </motion.div>
       {services.map((service) => (
         <div
           key={service.name}
