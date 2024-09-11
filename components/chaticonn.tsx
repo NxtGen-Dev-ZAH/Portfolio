@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { MessageCircle, X, Send } from "lucide-react";
+import { useMediaQuery } from "react-responsive";
 
 interface Message {
   text: string;
@@ -29,16 +30,20 @@ const Chaticon: React.FC = () => {
       }, 1000);
     }
   };
+  const isMobile = useMediaQuery({ query: "(max-width: 600px)" });
+  const isLargeScreen = useMediaQuery({ query: "(min-width: 601px" });
+  const messageCircleSize = isMobile ? 22 : isLargeScreen ? 32 : 32;
+  const sendIconSize = isMobile ? 16 : isLargeScreen ? 20 : 20;
 
   return (
     <div className="fixed bottom-12 right-12 z-[100]">
       {" "}
       {/* Increased z-index */}
       {isOpen ? (
-        <div className="bg-purple-600 rounded-lg shadow-lg w-80 h-96 flex flex-col">
+        <div className="bg-purple-600 rounded-lg shadow-lg w-60 h-80 md:w-80 md:h-96 flex flex-col">
           <div className="bg-purple-600  p-4 rounded-t-lg flex justify-between items-center">
-            <h3 className="font-bold text-xl text-cyan-300  tracking-widest">
-              CHAT{" "}
+            <h3 className="font-bold text-xl text-black tracking-widest">
+              Chat With Me
             </h3>
             <button onClick={toggleChat} className="text-white">
               <X size={20} />
@@ -66,10 +71,10 @@ const Chaticon: React.FC = () => {
               </div>
             ))}
           </div>
-          <div className="p-4 border-t bg-gray-100">
-            {" "}
+          <div className="p-4 border-t bg-gray-200 ">
+            
             {/* Ensure solid background */}
-            <div className="flex">
+            <div className="flex  justify-center ">
               <input
                 type="text"
                 value={inputMessage}
@@ -77,13 +82,13 @@ const Chaticon: React.FC = () => {
                   setInputMessage(e.target.value)
                 }
                 placeholder="Type a message..."
-                className="flex-1 border rounded-l-lg p-2 text-black"
+                className="flex-1 border rounded-l-lg p-2 text-black border-yellow-400"
               />
               <button
                 onClick={handleSendMessage}
-                className="bg-purple-500 text-white p-2 rounded-r-lg"
+                className="bg-purple-500 text-white p-2 rounded-r-lg "
               >
-                <Send size={20} />
+                <Send size={sendIconSize} />
               </button>
             </div>
           </div>
@@ -93,7 +98,7 @@ const Chaticon: React.FC = () => {
           onClick={toggleChat}
           className="bg-purple-500 text-white p-4 rounded-full shadow-lg hover:bg-purple-600 transition-colors"
         >
-          <MessageCircle size={32} />
+          <MessageCircle size={messageCircleSize} />
         </button>
       )}
     </div>
@@ -101,4 +106,3 @@ const Chaticon: React.FC = () => {
 };
 
 export default Chaticon;
-

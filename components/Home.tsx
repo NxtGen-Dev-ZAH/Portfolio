@@ -40,7 +40,7 @@ export default function Home() {
               your vision to life.
             </p>
             <Box className="md:hidden flex justify-center mb-6">
-              <Box className="w-48 h-48 border-y-4 border-purple-700 rounded-full ">
+              <div className="w-48 h-48 border-y-4 border-purple-700 rounded-full overflow-hidden ">
                 <Image
                   src="/mypicx.png"
                   alt="Profile Picture"
@@ -48,7 +48,7 @@ export default function Home() {
                   height={192}
                   className="w-full h-full object-cover"
                 />
-              </Box>
+              </div>
             </Box>
 
             <Box className="flex flex-col md:flex-row gap-4 md:gap-6">

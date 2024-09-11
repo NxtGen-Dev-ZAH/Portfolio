@@ -51,7 +51,7 @@ const TestimonialsAndFAQs: React.FC = () => {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-purple-900 to-gray-900 text-white py-16 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-gradient-to-b from-black via-purple-900 to-gray-900 text-white py-16 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         <h2 className="text-4xl font-bold text-center mb-12">
           What Our Clients Say

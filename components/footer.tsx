@@ -18,7 +18,7 @@ const Footer = () => {
   return (
     <footer className="bg-gray-900 text-white py-6">
       <div className="container mx-auto px-4">
-        <div className="flex flex-col md:flex-row justify-center items-center gap-52">
+        <div className="flex flex-col md:flex-row justify-center items-center gap-16 md:gap-52">
           <div className="flex flex-col justify-start items-center">
             <h3 className="text-2xl font-semibold mb-8 text-purple-600 ">
               Zaheer Ahmed | Portfolio
