@@ -6,7 +6,7 @@ import { z } from "zod";
 const schema = z.object({
   name: z.string().trim().min(5, "Please enter your name"),
   email: z.string().email("Please enter a valid email address"),
-  description: z
+  message: z
     .string()
     .trim()
     .min(20, "Description must be at least 20 characters"),
@@ -18,7 +18,7 @@ export default function ContactUs(): React.ReactElement {
   const [formData, setFormData] = useState<FormData>({
     name: "",
     email: "",
-    description: "",
+    message: "",
   });
   const [errors, setErrors] = useState<Partial<FormData>>({});
   const [submitStatus, setSubmitStatus] = useState<string | null>(null);
@@ -48,7 +48,7 @@ export default function ContactUs(): React.ReactElement {
       });
 
       if (response.ok) {
-        setFormData({ name: "", email: "", description: "" });
+        setFormData({ name: "", email: "", message: "" });
         setErrors({});
         setSubmitStatus("Message sent successfully!");
       } else {
@@ -201,25 +201,23 @@ export default function ContactUs(): React.ReactElement {
             </div>
             <div>
               <label
-                htmlFor="description"
+                htmlFor="message"
                 className="block text-sm font-medium mb-1 xl:text-lg"
               >
                 Description
               </label>
               <textarea
-                id="description"
-                name="description"
-                value={formData.description}
+                id="message"
+                name="message"
+                value={formData.message}
                 onChange={handleChange}
                 className={`w-full bg-transparent rounded border focus:border-purple-500 focus:ring-2 focus:ring-purple-900 text-base outline-none text-gray-100 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out ${
-                  errors.description ? "border-red-500" : ""
+                  errors.message ? "border-red-500" : ""
                 } placeholder:opacity-60  placeholder:text-sm xl:placeholder:text-base`}
                 placeholder="Please explain in more than 20 words"
               />
-              {errors.description && (
-                <span className="text-red-500 text-sm">
-                  {errors.description}
-                </span>
+              {errors.message && (
+                <span className="text-red-500 text-sm">{errors.message}</span>
               )}
             </div>
             <div className="mx-auto items-center flex justify-center">

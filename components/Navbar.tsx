@@ -29,9 +29,7 @@ const Navbar: React.FC = () => {
       px-4 sm:px-8 lg:px-16
       border-black border
       transition-all duration-300 ease-in-out ${
-        scrolled
-          ? "bg-opacity-80 bg-gray-950"
-          : "bg-opacity-0 bg-transparent "
+        scrolled ? "bg-opacity-80 bg-gray-950" : "bg-opacity-0 bg-transparent "
       }`}
     >
       <div>
@@ -106,6 +104,7 @@ const Navbar: React.FC = () => {
       {mobileMenuOpen && (
         <div className="absolute top-[60px] left-0 right-0 bg-gray-800 md:hidden">
           <Navigation />
+          <div className="flex gap-3 justify-center mb-3">
           {Socials.map((social) => (
             <Link key={social.name} href={social.link} target="_blank">
               <Image
@@ -117,6 +116,7 @@ const Navbar: React.FC = () => {
               />
             </Link>
           ))}
+        </div>
         </div>
       )}
     </nav>
