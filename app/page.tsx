@@ -9,7 +9,7 @@ import Project from "../components/project";
 import Skill from "../components/skill";
 import Image from "next/image";
 import TestimonialsAndFAQs from "../components/Testimonial";
-import Chaticon from "../components/chaticonn";
+import ProfessionalChatbot from "../components/Chaticon";
 export default function Main() {
   return (
     <main
@@ -51,7 +51,7 @@ export default function Main() {
         className="absolute top-0 right-0 z-[10]"
       />
 
-      <Chaticon />
+      <ProfessionalChatbot />
     </main>
   );
 }
