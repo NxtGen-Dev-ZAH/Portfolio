@@ -1,5 +1,4 @@
 "use client";
-
 import React, { useState, useRef, useEffect } from "react";
 import {
   Send,
@@ -36,23 +35,6 @@ export default function ProfessionalChatbot() {
     scrollToBottom();
   }, [messages]);
 
-  const handleSend = () => {
-    if (inputText.trim()) {
-      setMessages([...messages, { text: inputText, sender: "user" }]);
-      setInputText("");
-      // Simulate bot response
-      setTimeout(() => {
-        setMessages((prev) => [
-          ...prev,
-          {
-            text: "Thank you for your inquiry. I'm processing your request and will respond shortly.",
-            sender: "bot",
-          },
-        ]);
-      }, 1000);
-    }
-  };
-
   const [isLiked, setIsLiked] = useState(false);
   const [isDisliked, setIsDisliked] = useState(false);
 
@@ -77,6 +59,56 @@ export default function ProfessionalChatbot() {
     ]);
   };
 
+  const [isLoading, setIsLoading] = useState(false);
+
+  const handleSend = async () => {
+    if (inputText.trim()) {
+      setMessages((prev) => [...prev, { text: inputText, sender: "user" }]);
+      setInputText("");
+      setIsLoading(true);
+      try {
+        const response = await fetch("/api/chat", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ query: inputText }),
+        });
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        if (!response.body) {
+          throw new Error("Response body is null");
+        }
+        const reader = response.body.getReader();
+        const decoder = new TextDecoder();
+        let fullText = "";
+        setMessages((prev) => [...prev, { text: "", sender: "bot" }]);
+        while (true) {
+          const { done, value } = await reader.read();
+          if (done) break;
+          const chunk = decoder.decode(value);
+          fullText += chunk;
+          setMessages((prev) => {
+            const newMessages = [...prev];
+            newMessages[newMessages.length - 1].text = fullText;
+            return newMessages;
+          });
+        }
+      } catch (error) {
+        console.error("Error:", error);
+        setMessages((prev) => [
+          ...prev,
+          {
+            text: "Sorry, I encountered an error. Please try again later.",
+            sender: "bot",
+          },
+        ]);
+      } finally {
+        setIsLoading(false);
+      }
+    }
+  };
   const renderChatSection = () => (
     <>
       <div className="h-72 overflow-y-auto p-4 space-y-4">
@@ -100,41 +132,29 @@ export default function ProfessionalChatbot() {
             </div>
           </div>
         ))}
+        {isLoading && (
+          <div className="flex justify-start">
+            <div className="bg-gray-100 text-gray-800 p-3 rounded-lg">
+              <Bot size={20} className="animate-pulse" />
+            </div>
+          </div>
+        )}
         <div ref={messagesEndRef} />
       </div>
       <div className="p-4 border-t">
-        <div className="flex space-x-2 mb-2">
-          <button
-            onClick={() => handleQuickAction("Services")}
-            className="bg-gray-100 hover:bg-gray-200 text-gray-800 px-3 py-1 rounded-full text-sm"
-          >
-            Services
-          </button>
-          <button
-            onClick={() => handleQuickAction("Billing")}
-            className="bg-gray-100 hover:bg-gray-200 text-gray-800 px-3 py-1 rounded-full text-sm"
-          >
-            Billing
-          </button>
-          <button
-            onClick={() => handleQuickAction("Gen AI")}
-            className="bg-gray-100 hover:bg-gray-200 text-gray-800 px-3 py-1 rounded-full text-sm"
-          >
-            GEN AI
-          </button>
-        </div>
         <div className="flex items-center space-x-2">
           <input
             type="text"
             value={inputText}
             onChange={(e) => setInputText(e.target.value)}
             placeholder="Type your message..."
-            className="flex-grow p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+            className="flex-grow p-2 border rounded-lg text-black focus:outline-none focus:ring-2 focus:ring-purple-500"
             onKeyDown={(e) => e.key === "Enter" && handleSend()}
           />
           <button
             onClick={handleSend}
-            className="bg-purple-500 text-white p-2 rounded-lg hover:bg-purple-600 transition-colors"
+            className="bg-purple-400 text-white p-2 rounded-lg hover:bg-purple-600 hover:text-gray-300 transition-colors"
+            disabled={isLoading}
           >
             <Send size={20} />
           </button>
@@ -148,27 +168,40 @@ export default function ProfessionalChatbot() {
       <h3 className="font-bold text-lg mb-2">Frequently Asked Questions</h3>
       <div className="space-y-4">
         <div className="bg-gray-100 p-4 rounded-lg">
-          <h4 className="font-semibold mb-2">How do I reset my password?</h4>
+          <h4 className="font-semibold mb-2">
+            How do you optimize AI models for real-time applications?
+          </h4>
           <p className="text-sm text-gray-600">
-            To reset your password, go to the login page and click on the
-            "Forgot Password" link. Follow the instructions sent to your email.
+            I use techniques such as model quantization, pruning, and
+            distillation to reduce inference time and memory usage. For
+            real-time AI applications, I utilize GPU/TPU acceleration and deploy
+            models in cloud environments with serverless infrastructure to
+            handle dynamic workloads efficiently.
           </p>
         </div>
         <div className="bg-gray-100 p-4 rounded-lg">
           <h4 className="font-semibold mb-2">
-            What payment methods do you accept?
+            What is your approach to microservices architecture for large-scale
+            applications?
           </h4>
           <p className="text-sm text-gray-600">
-            We accept all major credit cards, PayPal, and bank transfers for
-            business accounts.
+            I design scalable, event-driven microservices using Kafka for
+            asynchronous communication and FastAPI for RESTful services. I also
+            utilize Dapr for service-to-service communication and employ
+            Protobuf for efficient message serialization.,
           </p>
         </div>
         <div className="bg-gray-100 p-4 rounded-lg">
-          <h4 className="font-semibold mb-2">How can I track my order?</h4>
+          <h4 className="font-semibold mb-2">
+            How do you handle complex AI and ML integrations in web
+            applications?
+          </h4>
           <p className="text-sm text-gray-600">
-            Once your order is shipped, you'll receive a tracking number via
-            email. You can use this number on our website or the courier's site
-            to track your package.
+            I leverage frameworks like FastAPI, TensorFlow, and PyTorch for
+            seamless AI/ML integration into web applications. I ensure optimized
+            model performance through fine-tuning and employ tools like
+            LangChain to enhance LLM-based applications with RAG
+            (Retrieval-Augmented Generation).
           </p>
         </div>
       </div>
@@ -182,10 +215,10 @@ export default function ProfessionalChatbot() {
         <div className="bg-gray-100 p-4 rounded-lg flex items-center space-x-4">
           <Phone size={24} className="text-purple-500" />
           <div>
-            <h4 className="font-semibold">Phone Support</h4>
-            <p className="text-sm text-gray-600">+1 (800) 123-4567</p>
+            <h4 className="font-semibold">Whatsapp Support</h4>
+            <p className="text-sm text-gray-600">+92 347 5177267</p>
             <p className="text-xs text-gray-500">
-              Monday - Friday, 9am - 5pm EST
+              Monday - Friday, 9am - 4pm EST
             </p>
           </div>
         </div>
@@ -193,7 +226,7 @@ export default function ProfessionalChatbot() {
           <MessageCircle size={24} className="text-purple-500" />
           <div>
             <h4 className="font-semibold">Email Support</h4>
-            <p className="text-sm text-gray-600">support@company.com</p>
+            <p className="text-sm text-gray-600">dev.zaheer.ahmad@gmail.com</p>
             <p className="text-xs text-gray-500">
               24/7 support, response within 24 hours
             </p>
@@ -204,9 +237,9 @@ export default function ProfessionalChatbot() {
           <div>
             <h4 className="font-semibold">Business Hours</h4>
             <p className="text-sm text-gray-600">
-              Monday - Friday: 9am - 6pm EST
+              Monday - Friday: 9am - 5pm EST
             </p>
-            <p className="text-sm text-gray-600">Saturday: 10am - 4pm EST</p>
+            <p className="text-sm text-gray-600">Saturday: 11am - 3pm EST</p>
             <p className="text-sm text-gray-600">Sunday: Closed</p>
           </div>
         </div>
