@@ -19,15 +19,6 @@ const Services: React.FC = () => {
 
   const services: Service[] = [
     {
-      name: "Web Development",
-      description: [
-        "Modern web applications using Next.js, React.js, and JavaScript.",
-        "Responsive, high-performance websites with a focus on SEO and user experience.",
-        "E-commerce solutions and online store development.",
-      ],
-      image: "/website.jpg",
-    },
-    {
       name: "AI and Machine Learning",
       description: [
         "AI integration and implementation for immersive web experiences.",
@@ -54,6 +45,15 @@ const Services: React.FC = () => {
         "Statistical modeling and predictive analytics.",
       ],
       image: "/data-science.jpg",
+    },
+    {
+      name: "Full-Stack Development",
+      description: [
+        "Building robust backend systems with Python, FastAPI, and SQL databases.",
+        "Developing scalable, high-performance full-stack applications using Next.js and React.js.",
+        "Ensuring smooth API integrations, cloud deployments, and optimized data flows.",
+      ],
+      image: "/website.jpg",
     },
   ];
 
@@ -93,16 +93,20 @@ const Services: React.FC = () => {
           Here are some of the services I provide:
         </span>
       </p>
-      <motion.div className="grid grid-cols-2 md:flex md:flex-wrap justify-center gap-4 mb-8 md:gap-10 md:mb-4"
-                  ref={ref}
-       initial={{ opacity: 0, y: 50 }}
-       animate={ isInView ? { opacity: 1, y: 0 ,scale:1}: { scale: 0.5, opacity: 0.5 }}
-       transition={{ duration: 0.5 ,delay:0.2}}
-     >
+      <motion.div
+        className="grid grid-cols-2 md:flex md:flex-wrap justify-center gap-4 mb-8 md:gap-10 md:mb-4"
+        ref={ref}
+        initial={{ opacity: 0, y: 50 }}
+        animate={
+          isInView
+            ? { opacity: 1, y: 0, scale: 1 }
+            : { scale: 0.5, opacity: 0.5 }
+        }
+        transition={{ duration: 0.5, delay: 0.2 }}
+      >
         {services.map((service) => (
           <button
             key={service.name}
-
             className={`${
               activeService === service.name.toLowerCase()
                 ? "bg-purple-800 rounded-br-3xl rounded-tl-3xl font-extrabold ring-2 ring-offset-2 ring-offset-gray-300"

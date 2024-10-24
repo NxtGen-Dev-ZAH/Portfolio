@@ -16,8 +16,6 @@ from langchain_core.output_parsers import StrOutputParser
 from langchain_core.runnables import RunnablePassthrough
 from pydantic import BaseModel
 from fastapi.responses import StreamingResponse
-
-# from langchain_openai import ChatOpenAI
 from langchain_openai import ChatOpenAI
 
 
@@ -233,3 +231,24 @@ async def chat(request: ChatRequest):
 # docs = vectorstore.similarity_search(query)
 # chain.invoke(docs, question=query)
 # print(chain)
+
+
+# def set_qa_chain(self):
+#     template = """Use the following pieces of context to answer the question at the end.
+# If you don't know the answer, just say that you don't know, don't try to make up an answer.
+# Use three sentences maximum and keep the answer as concise as possible.
+# {context}
+
+# Question: {question}
+
+# Helpful Answer:"""
+#     custom_rag_prompt = PromptTemplate(
+#         template=template, input_variables=["context", "question"]
+#     )
+#     return RetrievalQA.from_chain_type(
+#         llm=llm,
+#         chain_type="stuff",
+#         retriever=retriever,
+#         chain_type_kwargs={"prompt": custom_rag_prompt},
+#         return_source_documents=True,
+#     )

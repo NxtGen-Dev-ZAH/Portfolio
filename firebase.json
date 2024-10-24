@@ -1,0 +1,25 @@
+{
+  "hosting": {
+    "public": "out",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "cleanUrls": true,
+    "rewrites": [
+      {
+        "source": "/api/:path*",
+        "destination": "/api/"
+      },
+      {
+        "source": "/docs",
+        "destination": "/api/docs"
+      },
+      {
+        "source": "/openapi.json",
+        "destination": "/api/openapi.json"
+      }
+    ]
+  }
+}

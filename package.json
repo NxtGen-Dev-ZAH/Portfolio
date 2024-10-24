@@ -7,6 +7,9 @@
     "next-dev": "next dev",
     "dev": "concurrently \"npm run next-dev\" \"npm run fastapi-dev\"",
     "build": "next build",
+    "build:firebase": "node generateFirebaseConfig.js",
+
+    "export": "next build",
     "start": "next start",
     "lint": "next lint"
   },
@@ -14,11 +17,18 @@
     "@emotion/react": "^11.11.4",
     "@emotion/styled": "^11.11.5",
     "@mui/material": "^5.15.20",
+    "@radix-ui/react-icons": "^1.3.0",
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.1.1",
+    "firebase": "^11.0.1",
+    "firebase-admin": "^12.6.0",
     "lucide-react": "^0.439.0",
     "next": "14.0.4",
     "react": "^18",
     "react-dom": "^18",
     "react-responsive": "^10.0.0",
+    "tailwind-merge": "^2.5.4",
+    "tailwindcss-animate": "^1.0.7",
     "zod": "^3.23.8"
   },
   "devDependencies": {
